@@ -27,7 +27,7 @@
         <Border Grid.Row="1" 
             Background="White" 
             Width="400" 
-            Height="350"
+            Height="500"
             HorizontalAlignment="Center" 
             VerticalAlignment="Top"
             Margin="0,30,0,0"

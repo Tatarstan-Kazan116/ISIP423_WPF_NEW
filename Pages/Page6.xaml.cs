@@ -87,7 +87,7 @@ namespace Pr14.Pages
             var seatInfo = btn?.DataContext as SeatInfo;
             if (seatInfo == null) return;
 
-            if (seatInfo.IsBusy) // на всякий случай, хотя кнопка уже disabled
+            if (seatInfo.IsBusy) // кнопка уже disabled
             {
                 MessageBox.Show("Место занято!");
                 return;
