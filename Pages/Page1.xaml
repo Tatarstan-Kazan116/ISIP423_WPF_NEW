@@ -1,0 +1,191 @@
+﻿<Page x:Class="Pr14.Pages.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pr14.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Каталог">
+
+    <Grid Background="#F0F0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Border Grid.Row="0" Background="#2C3E50">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="20,0,0,0" Orientation="Horizontal">
+                    <TextBlock Text="🎬" FontSize="24" Margin="0,0,10,0"/>
+                    <TextBlock Text="Львиная Душа" 
+                           VerticalAlignment="Center" 
+                           FontSize="20" 
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                </StackPanel>
+
+                <Button Grid.Column="1" 
+                    Width="40" 
+                    Height="40" 
+                    Margin="0,0,20,0"
+                    Background="#34495E"
+                    Content="👤" 
+                    FontSize="18"
+                    BorderThickness="0"
+                    Foreground="White"
+                    Cursor="Hand"
+                    Click="Button_Click"/>
+            </Grid>
+        </Border>
+
+        <!-- Поиск -->
+        <Border Grid.Row="1" 
+            Margin="20,15,20,10"
+            Background="White"
+            BorderBrush="#CCCCCC"
+            BorderThickness="1">
+            <Grid Margin="15,10,15,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" 
+                       Text="🔍" 
+                       FontSize="16" 
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,0"/>
+
+                <TextBox Grid.Column="1" 
+                     x:Name="FindFilm" 
+                     Background="Transparent" 
+                     BorderBrush="Transparent" 
+                     Foreground="#333333"
+                     FontSize="14"
+                     VerticalAlignment="Center"
+                     TextChanged="FindFilm_TextChanged"/>
+            </Grid>
+        </Border>
+
+        <!-- Список фильмов -->
+        <ListBox Grid.Row="2"
+             x:Name="listBox"
+             Margin="20,10,20,20"
+             Background="Transparent"
+             BorderThickness="0"
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <!-- Карточка фильма -->
+                    <Border Margin="10,8"
+                        Width="220"
+                        Height="320"
+                        Background="White"
+                        BorderBrush="#DDDDDD"
+                        BorderThickness="1">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Изображение -->
+                            <Border Grid.Row="0" Background="#EEEEEE">
+                                <Image Source="{Binding ImagePath}" 
+                                   Width="220" 
+                                   Height="150"
+                                   Stretch="UniformToFill"/>
+                            </Border>
+
+                            <!-- Информация -->
+                            <StackPanel Grid.Row="1" Margin="12,10">
+                                <TextBlock Text="{Binding Name}" 
+                                       FontSize="14" 
+                                       FontWeight="Bold"
+                                       Foreground="#333333"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Left"
+                                       Margin="0,0,0,5"/>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="⭐" FontSize="12" Margin="0,0,5,0"/>
+                                    <TextBlock x:Name="RatingFilm" 
+                                           Text="{Binding Rating}" 
+                                           FontSize="12"
+                                           Foreground="#666666"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- Кнопки -->
+                            <Grid Grid.Row="2" Margin="12,0,12,12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="0"
+                                    Name="ButSeans"
+                                    Content="Билет"
+                                    Height="32"
+                                    Margin="0,0,5,0"
+                                    Background="#3498DB"
+                                    Foreground="White"
+                                    FontSize="12"
+                                    BorderThickness="0"
+                                    Tag="{Binding ID}"
+                                    Cursor="Hand"
+                                    Click="ButSeans_Click"/>
+
+                                <Button Grid.Column="1"
+                                    Name="ButInfo"
+                                    Content="Инфо"
+                                    Height="32"
+                                    Margin="5,0,0,0"
+                                    Background="#ECF0F1"
+                                    Foreground="#2C3E50"
+                                    FontSize="12"
+                                    BorderBrush="#BDC3C7"
+                                    BorderThickness="1"
+                                    Tag="{Binding ID}"
+                                    Cursor="Hand"
+                                    Click="ButInfo_Click"/>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RatingColorCode}" Value="1">
+                            <Setter TargetName="RatingFilm" Property="Foreground" Value="Green"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RatingColorCode}" Value="2">
+                            <Setter TargetName="RatingFilm" Property="Foreground" Value="Orange"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RatingColorCode}" Value="3">
+                            <Setter TargetName="RatingFilm" Property="Foreground" Value="DarkOrange"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RatingColorCode}" Value="4">
+                            <Setter TargetName="RatingFilm" Property="Foreground" Value="Red"/>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Page>

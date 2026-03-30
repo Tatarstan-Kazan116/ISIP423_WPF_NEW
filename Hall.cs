@@ -17,6 +17,7 @@ namespace Pr14
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Hall()
         {
+            this.Place = new HashSet<Place>();
             this.Session = new HashSet<Session>();
         }
     
@@ -25,6 +26,8 @@ namespace Pr14
         public int ClassID { get; set; }
     
         public virtual Classification Classification { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Place> Place { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Session> Session { get; set; }
     }

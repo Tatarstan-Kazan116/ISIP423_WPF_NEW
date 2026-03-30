@@ -198,6 +198,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Place_Hall">
+          <End Role="Hall" Type="Self.Hall" Multiplicity="1" />
+          <End Role="Place" Type="Self.Place" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hall">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Place">
+              <PropertyRef Name="IDhall" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Session_Film">
           <End Role="Film" Type="Self.Film" Multiplicity="1" />
           <End Role="Session" Type="Self.Session" Multiplicity="*" />
@@ -298,6 +310,10 @@
           <AssociationSet Name="FK_Hall_Classification" Association="Self.FK_Hall_Classification">
             <End Role="Classification" EntitySet="Classification" />
             <End Role="Hall" EntitySet="Hall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Place_Hall" Association="Self.FK_Place_Hall">
+            <End Role="Hall" EntitySet="Hall" />
+            <End Role="Place" EntitySet="Place" />
           </AssociationSet>
           <AssociationSet Name="FK_Session_Film" Association="Self.FK_Session_Film">
             <End Role="Film" EntitySet="Film" />
@@ -400,6 +416,7 @@
           <Property Name="HallName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ClassID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Classification" Relationship="Self.FK_Hall_Classification" FromRole="Hall" ToRole="Classification" />
+          <NavigationProperty Name="Place" Relationship="Self.FK_Place_Hall" FromRole="Hall" ToRole="Place" />
           <NavigationProperty Name="Session" Relationship="Self.FK_Session_Hall" FromRole="Hall" ToRole="Session" />
         </EntityType>
         <EntityType Name="Place">
@@ -411,6 +428,7 @@
           <Property Name="Seat" Type="Int32" Nullable="false" />
           <Property Name="IDhall" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BusyPlace" Relationship="Self.FK_BusyPlace_Place" FromRole="Place" ToRole="BusyPlace" />
+          <NavigationProperty Name="Hall" Relationship="Self.FK_Place_Hall" FromRole="Place" ToRole="Hall" />
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Place" FromRole="Place" ToRole="Ticket" />
         </EntityType>
         <EntityType Name="Session">
@@ -532,6 +550,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Place_Hall">
+          <End Role="Hall" Type="Self.Hall" Multiplicity="1" />
+          <End Role="Place" Type="Self.Place" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hall">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Place">
+              <PropertyRef Name="IDhall" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Session_Hall">
           <End Role="Hall" Type="Self.Hall" Multiplicity="1" />
           <End Role="Session" Type="Self.Session" Multiplicity="*" />
@@ -611,6 +641,10 @@
           <AssociationSet Name="FK_Session_Film" Association="Self.FK_Session_Film">
             <End Role="Film" EntitySet="Film" />
             <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Place_Hall" Association="Self.FK_Place_Hall">
+            <End Role="Hall" EntitySet="Hall" />
+            <End Role="Place" EntitySet="Place" />
           </AssociationSet>
           <AssociationSet Name="FK_Session_Hall" Association="Self.FK_Session_Hall">
             <End Role="Hall" EntitySet="Hall" />

@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dcb3b4313ed14a088e19efebd5a01383" Name="Diagram1">
+      <Diagram DiagramId="4510c45fb2a44d7f9952ff470a6e8da3" Name="Diagram1">
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Age" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.BusyPlace" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Classification" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Client" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Film" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Ganre" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Hall" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Hall" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Place" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.Session" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Siraziev_Retunskih_CinemaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
@@ -23,6 +23,7 @@
         <AssociationConnector Association="Siraziev_Retunskih_CinemaModel.FK_Ticket_Client" ManuallyRouted="false" />
         <AssociationConnector Association="Siraziev_Retunskih_CinemaModel.FK_Film_Ganre" ManuallyRouted="false" />
         <AssociationConnector Association="Siraziev_Retunskih_CinemaModel.FK_Session_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="Siraziev_Retunskih_CinemaModel.FK_Place_Hall" ManuallyRouted="false" />
         <AssociationConnector Association="Siraziev_Retunskih_CinemaModel.FK_Session_Hall" ManuallyRouted="false" />
         <AssociationConnector Association="Siraziev_Retunskih_CinemaModel.FK_Ticket_Place" ManuallyRouted="false" />
         <AssociationConnector Association="Siraziev_Retunskih_CinemaModel.FK_Ticket_Session" ManuallyRouted="false" />
