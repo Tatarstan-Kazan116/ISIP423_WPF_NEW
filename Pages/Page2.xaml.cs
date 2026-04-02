@@ -1,23 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Pr14;
+using Pr14.Pages;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Linq;
 
 namespace Pr14.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для Page2.xaml
-    /// </summary>
     public partial class Page2 : Page
     {
         Client Us;
@@ -31,52 +20,62 @@ namespace Pr14.Pages
         {
             InitializeComponent();
             Us = user;
-            LoginEnter.Text = user.Email;
-            PasswordEnter.Password = user.Password;
+            if (LoginEnter != null) LoginEnter.Text = user.Email;
+            if (PasswordEnter != null) PasswordEnter.Password = user.Password;
+        }
+
+        
+        public bool Auth(string login, string password)
+        {
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                return false;
+            }
+
+            try
+            {
+                var cl = Core.Context.Client
+                    .FirstOrDefault(c => c.Email == login && c.Password == password);
+
+                if (cl != null)
+                {
+                    Us = cl;
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Page3());
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (AuthUser(LoginEnter.Text, PasswordEnter.Password))
+            string login = LoginEnter != null ? LoginEnter.Text : "";
+            string password = PasswordEnter != null ? PasswordEnter.Password : "";
+
+            if (Auth(login, password))
             {
+                MessageBox.Show("Вы успешно авторизовались!");
                 NavigationService.Navigate(new Page1(Us));
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show("Пользователь не найден в Базе данных! Желаете зарегистрироваться?", "Ошибка входа", MessageBoxButton.YesNoCancel, MessageBoxImage.Error);
+                MessageBoxResult result = MessageBox.Show(
+                    "Пользователь не найден в Базе данных! Желаете зарегистрироваться?",
+                    "Ошибка входа",
+                    MessageBoxButton.YesNoCancel,
+                    MessageBoxImage.Error);
 
                 if (result == MessageBoxResult.Yes)
                 {
                     NavigationService.Navigate(new Page3());
-                }
-            }
-        }
-
-        public bool AuthUser(string login, string password)
-        {
-            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Введите логин и пароль");
-                return false;
-            }
-            else
-            {
-                var cl = Core.Context.Client.Where(c => (c.Email == login) && (c.Password == password)).FirstOrDefault();
-                if (cl != null)
-                {
-                    Us = cl;
-                    MessageBox.Show("Вы успешно авторизовались!");
-                    return true;
-                }
-                else
-                {
-                    return false;
                 }
             }
         }

@@ -8,6 +8,6 @@ namespace Pr14
 {
     public static class Core
     {
-        public static Siraziev_Retunskih_CinemaEntities1 Context = new Siraziev_Retunskih_CinemaEntities1();
+        public static Siraziev_Retunskih_CinemaEntities3 Context = new Siraziev_Retunskih_CinemaEntities3();
     }
 }

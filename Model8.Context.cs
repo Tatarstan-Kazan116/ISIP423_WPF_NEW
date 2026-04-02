@@ -13,10 +13,10 @@ namespace Pr14
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Siraziev_Retunskih_CinemaEntities1 : DbContext
+    public partial class Siraziev_Retunskih_CinemaEntities3 : DbContext
     {
-        public Siraziev_Retunskih_CinemaEntities1()
-            : base("name=Siraziev_Retunskih_CinemaEntities1")
+        public Siraziev_Retunskih_CinemaEntities3()
+            : base("name=Siraziev_Retunskih_CinemaEntities3")
         {
         }
     

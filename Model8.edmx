@@ -602,7 +602,7 @@
           <End Role="Film" Type="Self.Film" Multiplicity="*" />
           <End Role="Ganre" Type="Self.Ganre" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Siraziev_Retunskih_CinemaEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Siraziev_Retunskih_CinemaEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Age" EntityType="Self.Age" />
           <EntitySet Name="BusyPlace" EntityType="Self.BusyPlace" />
           <EntitySet Name="Classification" EntityType="Self.Classification" />
@@ -668,7 +668,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Siraziev_Retunskih_CinemaModelContainer" CdmEntityContainer="Siraziev_Retunskih_CinemaEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Siraziev_Retunskih_CinemaModelContainer" CdmEntityContainer="Siraziev_Retunskih_CinemaEntities3">
           <EntitySetMapping Name="Age">
             <EntityTypeMapping TypeName="Siraziev_Retunskih_CinemaModel.Age">
               <MappingFragment StoreEntitySet="Age">

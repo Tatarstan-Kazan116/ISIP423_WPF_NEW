@@ -65,44 +65,44 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Age.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="BusyPlace.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Classification.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Class\Film1.cs" />
     <Compile Include="Class\SessionDisplay.cs" />
     <Compile Include="Class\ViewModel.cs" />
     <Compile Include="Client.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Core.cs" />
     <Compile Include="Film.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Ganre.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Hall.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model7.Context.cs">
+    <Compile Include="Model8.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model7.Context.tt</DependentUpon>
+      <DependentUpon>Model8.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model7.cs">
+    <Compile Include="Model8.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model7.Designer.cs">
+    <Compile Include="Model8.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model7.edmx</DependentUpon>
+      <DependentUpon>Model8.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
@@ -129,16 +129,16 @@
       <DependentUpon>Page8.xaml</DependentUpon>
     </Compile>
     <Compile Include="Place.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Session.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Ticket.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -203,12 +203,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model7.edmx">
+    <EntityDeploy Include="Model8.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model7.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model8.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model7.edmx.diagram">
-      <DependentUpon>Model7.edmx</DependentUpon>
+    <None Include="Model8.edmx.diagram">
+      <DependentUpon>Model8.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -227,15 +227,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model7.Context.tt">
+    <Content Include="Model8.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model7.edmx</DependentUpon>
-      <LastGenOutput>Model7.Context.cs</LastGenOutput>
+      <DependentUpon>Model8.edmx</DependentUpon>
+      <LastGenOutput>Model8.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model7.tt">
+    <Content Include="Model8.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model7.edmx</DependentUpon>
-      <LastGenOutput>Model7.cs</LastGenOutput>
+      <DependentUpon>Model8.edmx</DependentUpon>
+      <LastGenOutput>Model8.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
